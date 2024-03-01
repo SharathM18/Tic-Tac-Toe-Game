@@ -78,19 +78,19 @@ const boxDisabled = () => {
 
 // display the winner message
 const showWinner = (winner) => {
-  boxContainer.style.display = "none";
-  rstGameBtn.style.display = "none";
   newGame.style.display = "flex";
+  rstGameBtn.style.display = "none";
   winMessage.innerHTML = `Congratulations, the winner is ${winner}`;
+  boxContainer.style.opacity = "0.5";
   boxDisabled();
 };
 
 //display the draw message
 const showDraw = () => {
-  boxContainer.style.display = "none";
-  rstGameBtn.style.display = "none";
   newGame.style.display = "flex";
+  rstGameBtn.style.display = "none";
   winMessage.innerHTML = "It's a draw!";
+  boxContainer.style.opacity = "0.5";
   boxDisabled();
 };
 
@@ -100,6 +100,8 @@ const resetGame = () => {
     box.innerHTML = "";
     box.disabled = false;
     count = 0;
+    player1 = true;
+    boxContainer.style.opacity = "1";
   }
 };
 
@@ -108,7 +110,6 @@ rstGameBtn.addEventListener("click", resetGame);
 // New Game
 newGameBtn.addEventListener("click", () => {
   newGame.style.display = "none";
-  boxContainer.style.display = "flex";
   rstGameBtn.style.display = "inline-block";
   resetGame();
 });
